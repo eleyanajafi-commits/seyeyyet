@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تماس و سفارش اختصاصی | فروشگاه استیچ</title>
+    <meta name="description" content="راه‌های ارتباطی با پشتیبانی تلگرام استیچ، ثبت سفارش اختصاصی، مشاوره سایزبندی و سوالات متداول خریداران." />
+    <meta property="og:title" content="تماس و سفارش اختصاصی | فروشگاه استیچ" />
+    <meta property="og:description" content="ارتباط فوری با ادمین تلگرام، پشتیبانی تلفنی و استودیو طراحی استیچ." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+      .faq-item {
+        background: var(--bg-card);
+        border: 1px solid var(--border-glass);
+        border-radius: var(--radius-md);
+        margin-bottom: 14px;
+        overflow: hidden;
+        transition: all var(--transition-normal);
+      }
+      .faq-question {
+        padding: 20px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 1.05rem;
+      }
+      .faq-question:hover {
+        color: var(--accent-cyan);
+      }
+      .faq-answer {
+        padding: 0 24px 20px;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.8;
+        display: none;
+        border-top: 1px dashed rgba(255, 255, 255, 0.06);
+        padding-top: 16px;
+      }
+      .faq-item.active {
+        border-color: var(--border-glass-bright);
+        background: var(--bg-card-hover);
+      }
+      .faq-item.active .faq-answer {
+        display: block;
+      }
+      .faq-icon {
+        transition: transform var(--transition-fast);
+      }
+      .faq-item.active .faq-icon {
+        transform: rotate(180deg);
+        color: var(--accent-cyan);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- نوار ناوبری شیشه‌ای (Glassmorphic Navbar) -->
+    <header class="navbar">
+      <div class="container navbar-inner">
+        <a href="index.html" class="nav-brand">
+          <div class="brand-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+              <path d="M2 17l10 5 10-5"></path>
+              <path d="M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <span>استیچ</span>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">صفحه اصلی</a></li>
+          <li><a href="products.html" class="nav-link">محصولات</a></li>
+          <li><a href="about.html" class="nav-link">درباره ما</a></li>
+          <li><a href="contact.html" class="nav-link active">تماس و سفارش</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button class="icon-btn" onclick="openCartDrawer()" title="سبد خرید">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="8" cy="21" r="1"></circle>
+              <circle cx="19" cy="21" r="1"></circle>
+              <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
+            </svg>
+            <span class="cart-badge" style="display: none;">۰</span>
+          </button>
+
+          <a href="https://t.me/Stitch_Support" target="_blank" class="btn-telegram-pill">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+            <span>ارتباط با تلگرام</span>
+          </a>
+
+          <button class="icon-btn mobile-menu-btn" onclick="toggleMobileMenu()" title="منو">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- سربرگ تماس -->
+    <section class="section" style="padding: 60px 0 40px;">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">پاسخگویی و ارتباط مستقیم</span>
+          <h1 class="section-title">تماس با ما و سفارش اختصاصی</h1>
+          <p class="section-subtitle">
+            برای ثبت سفارشات خاص، راهنمایی انتخاب سایز و طرح، یا هرگونه سوال قبل و بعد از خرید، در کنارتان هستیم.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 35px; margin-bottom: 70px;">
+          <!-- فرم تولید پیام و سفارش تلگرام -->
+          <div class="glass-panel" style="padding: 35px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+              <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(34, 158, 217, 0.18); color: var(--telegram-color); display: flex; align-items: center; justify-content: center;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+              </div>
+              <div>
+                <h3 style="font-size: 1.35rem; font-weight: 800;">ارسال پیام مستقیم به تلگرام پشتیبانی</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">پیام شما فرمت‌بندی شده و مستقیماً در تلگرام گشوده می‌شود.</p>
+              </div>
+            </div>
+
+            <form id="contactForm" onsubmit="handleContactSubmit(event)">
+              <div class="form-group">
+                <label class="form-label">موضوع پیام یا سفارش *</label>
+                <select id="contactSubject" class="form-select">
+                  <option value="سفارش اختصاصی">سفارش اختصاصی یا سایز سفارشی</option>
+                  <option value="مشاوره قبل از خرید">مشاوره قبل از خرید و انتخاب سایز</option>
+                  <option value="پیگیری سفارش">پیگیری وضعیت ارسال مرسوله</option>
+                  <option value="همکاری سازمانی">همکاری و سفارشات سازمانی</option>
+                  <option value="سایر موارد">سایر موضوعات و پیشنهادات</option>
+                </select>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                <div class="form-group">
+                  <label class="form-label">نام و نام خانوادگی *</label>
+                  <input type="text" id="contactName" required class="form-input" placeholder="مثلاً: سام یزدانی">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">شماره تماس یا آیدی تلگرام *</label>
+                  <input type="text" id="contactContact" required class="form-input" placeholder="مثلاً: ۰۹۱۲۳۴۵۶۷۸۹ یا @user">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">متن پیام یا توضیحات سفارش *</label>
+                <textarea id="contactMessage" required class="form-textarea" placeholder="متن پیام، مدل محصول مدنظر، مشخصات رنگ و هرگونه سوال خود را بنویسید..."></textarea>
+              </div>
+
+              <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <button type="submit" class="btn-checkout-telegram" style="flex: 1;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+                  <span>ارسال مستقیم به تلگرام</span>
+                </button>
+                <button type="button" class="btn-glass" onclick="copyContactMessage()">
+                  کپی متن پیام
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- کارت‌های کانال‌های ارتباطی -->
+          <div style="display: flex; flex-direction: column; gap: 18px;">
+            <div class="glass-card" style="padding: 24px; border-color: rgba(34, 158, 217, 0.3);">
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <div>
+                  <span style="font-size: 0.8rem; color: var(--telegram-color); font-weight: 700;">پشتیبانی آنلاین</span>
+                  <h4 style="font-size: 1.15rem; font-weight: 800; margin-top: 4px;">تلگرام پشتیبانی</h4>
+                  <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 4px;">@Stitch_Support</p>
+                </div>
+                <a href="https://t.me/Stitch_Support" target="_blank" class="btn-telegram-pill" style="padding: 8px 16px; font-size: 0.85rem;">
+                  <span>گفتگو</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="glass-card" style="padding: 24px;">
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <div>
+                  <span style="font-size: 0.8rem; color: var(--accent-cyan); font-weight: 700;">کانال اخبار و تخفیف‌ها</span>
+                  <h4 style="font-size: 1.15rem; font-weight: 800; margin-top: 4px;">کانال رسمی استیچ</h4>
+                  <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 4px;">@Stitch_Store</p>
+                </div>
+                <a href="https://t.me/Stitch_Store" target="_blank" class="btn-glass" style="padding: 8px 16px; font-size: 0.85rem;">
+                  <span>عضویت</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="glass-card" style="padding: 24px;">
+              <div style="display: flex; align-items: center; gap: 14px;">
+                <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(255, 255, 255, 0.05); display: flex; align-items: center; justify-content: center; color: var(--accent-cyan);">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                </div>
+                <div>
+                  <h4 style="font-size: 1.05rem; font-weight: 700;">تماس تلفنی و مشاوره</h4>
+                  <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 2px;">۰۲۱-۸۸۸۸۴۵۶۷ | شنبه تا پنج‌شنبه ۱۰ الی ۲۱</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="glass-card" style="padding: 24px;">
+              <div style="display: flex; align-items: center; gap: 14px;">
+                <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(255, 255, 255, 0.05); display: flex; align-items: center; justify-content: center; color: var(--accent-indigo);">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </div>
+                <div>
+                  <h4 style="font-size: 1.05rem; font-weight: 700;">آتلیه و شو‌روم مرکزی</h4>
+                  <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 2px;">تهران، خیابان ولیعصر، نرسیده به میدان ونک، برج نگین، استودیو استیچ (بازدید با هماهنگی قبلی تلگرام)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- سوالات متداول (FAQ Accordion) -->
+        <div class="section-header" style="margin-top: 40px; margin-bottom: 35px;">
+          <span class="section-tag">پاسخ به ابهامات</span>
+          <h2 class="section-title">سوالات متداول خریداران</h2>
+        </div>
+
+        <div style="max-width: 800px; margin: 0 auto 60px;">
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+              <span>روند ثبت سفارش در تلگرام چگونه انجام می‌شود؟</span>
+              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+            <div class="faq-answer">
+              کافی است پس از انتخاب محصولات و افزودن به سبد خرید، دکمه «تکمیل و ارسال فاکتور به تلگرام» را بزنید و نام و شماره خود را وارد کنید. فاکتور دقیق با جمع کل اقلام و کد تخفیف در تلگرام آماده شده و شما فقط دکمه Send را می‌زنید. کارشناس ما در سریع‌ترین زمان شماره کارت و هماهنگی ارسال را به شما پاسخ می‌دهد.
+            </div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+              <span>هزینه و زمان ارسال سفارشات چقدر است؟</span>
+              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+            <div class="faq-answer">
+              کلیه سفارشات بالای ۱ میلیون تومان به صورت کاملاً رایگان با پست پیشتاز یا تیپاکس ارسال می‌شوند. برای سفارشات کمتر از ۱ میلیون تومان، هزینه ارسال ثابت ۵۵ هزار تومان محاسبه می‌شود. زمان تحویل در تهران ۱ الی ۲ روز کاری و برای شهرستان‌ها ۲ الی ۴ روز کاری است.
+            </div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+              <span>چگونه از اندازه بودن سایز هودی و لباس‌ها مطمئن شویم؟</span>
+              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+            <div class="faq-answer">
+              تمام هودی‌های استیچ بر اساس استاندارد اورسایز (Loose Fit) و قواره آزاد طراحی شده‌اند. همچنین در صورت تمایل، می‌توانید قد و وزن خود را به تلگرام @Stitch_Support بفرستید تا دقیق‌ترین سایز مناسب به شما پیشنهاد شود. در صورت عدم تطابق سایز، تعویض تا ۷ روز مهلت دارد.
+            </div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+              <span>آیا امکان سفارش عمده یا چاپ اختصاصی برای برندها وجود دارد؟</span>
+              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+            <div class="faq-answer">
+              بله، کارگاه دوخت استیچ آماده همکاری با استارتاپ‌ها، شرکت‌ها و رویدادها جهت تولید پوشاک و اکسسوری سازمانی با چاپ یا گلدوزی اختصاصی لوگو است. جهت دریافت کاتالوگ سازمانی با پشتیبانی تلگرام در ارتباط باشید.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- فوتر جامع -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <h3>
+              <div class="brand-icon" style="width: 36px; height: 36px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+              </div>
+              <span>استیچ | STITCH</span>
+            </h3>
+            <p class="footer-desc">
+              استایل مدرن و متریال لوکس ایرانی با سفارش آسان در تلگرام.
+            </p>
+            <div class="footer-socials">
+              <a href="https://t.me/Stitch_Store" target="_blank" class="social-link"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg></a>
+              <a href="https://instagram.com" target="_blank" class="social-link"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>دسترسی سریع</h4>
+            <ul class="footer-links">
+              <li><a href="index.html">صفحه اصلی</a></li>
+              <li><a href="products.html">کاتالوگ محصولات</a></li>
+              <li><a href="about.html">درباره استیچ</a></li>
+              <li><a href="contact.html">تماس و سفارش</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>دسته‌بندی‌ها</h4>
+            <ul class="footer-links">
+              <li><a href="products.html">پوشاک و هودی</a></li>
+              <li><a href="products.html">کیف و اکسسوری</a></li>
+              <li><a href="products.html">ساعت و گجت</a></li>
+              <li><a href="products.html">دکوراسیون منزل</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>پشتیبانی تلگرام</h4>
+            <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 14px;">
+              سفارشات، استعلام موجودی و مشاوره:
+            </p>
+            <a href="https://t.me/Stitch_Support" target="_blank" class="btn-telegram-pill" style="width: 100%; justify-content: center;">
+              <span>@Stitch_Support</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© ۲۰۲۵ فروشگاه استیچ. آماده استقرار مستقیم در GitHub Pages.</p>
+          <p>بدون نیاز به ساخت یا بیلد؛ کافیست فایل‌ها را در گیت‌هاب آپلود کنید</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- کشوی سبد خرید -->
+    <div class="cart-drawer-backdrop" id="cartDrawerBackdrop" onclick="closeCartDrawer()"></div>
+    <div class="cart-drawer" id="cartDrawer">
+      <div class="cart-header">
+        <div class="cart-title">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg>
+          <span>سبد خرید شما</span>
+        </div>
+        <button class="modal-close" style="position: static;" onclick="closeCartDrawer()">✕</button>
+      </div>
+      <div class="cart-body" id="cartDrawerBody"></div>
+      <div class="cart-footer" id="cartDrawerFooter">
+        <div style="display: flex; gap: 8px; margin-bottom: 18px;">
+          <input type="text" id="promoCodeInput" placeholder="کد تخفیف (مثلاً STITCH20)" class="form-input" style="padding: 8px 12px; font-size: 0.88rem; text-transform: uppercase;">
+          <button onclick="applyPromoCode()" class="btn-primary" style="padding: 8px 16px; font-size: 0.88rem; white-space: nowrap;">اعمال</button>
+        </div>
+        <div class="cart-summary-row">
+          <span>جمع کل اقلام:</span>
+          <span id="cartSubtotal">۰ تومان</span>
+        </div>
+        <div class="cart-summary-row" id="cartDiscountRow" style="display: none; color: var(--accent-emerald);">
+          <span>تخفیف:</span>
+          <span id="cartDiscount">۰ تومان</span>
+        </div>
+        <div class="cart-summary-total">
+          <span>مبلغ نهایی:</span>
+          <span id="cartTotal" style="color: var(--accent-cyan);">۰ تومان</span>
+        </div>
+        <button onclick="openTelegramCheckoutModal()" class="btn-checkout-telegram">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+          <span>تکمیل و ارسال فاکتور به تلگرام</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- مودال سفارش نهایی تلگرام -->
+    <div class="modal-backdrop" id="telegramOrderModal">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeTelegramCheckoutModal()">✕</button>
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+          <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(34, 158, 217, 0.2); color: var(--telegram-color); display: flex; align-items: center; justify-content: center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+          </div>
+          <h3 style="font-size: 1.3rem; font-weight: 800;">ثبت نهایی سفارش در تلگرام</h3>
+        </div>
+        <form onsubmit="submitTelegramOrder(event)">
+          <div class="form-group">
+            <label class="form-label">نام و نام خانوادگی تحویل‌گیرنده *</label>
+            <input type="text" id="orderCustomerName" required class="form-input" placeholder="مثلاً: حمید رضایی">
+          </div>
+          <div class="form-group">
+            <label class="form-label">شماره تلفن همراه *</label>
+            <input type="tel" id="orderCustomerPhone" required class="form-input" placeholder="مثلاً: ۰۹۱۲۳۴۵۶۷۸۹">
+          </div>
+          <div class="form-group">
+            <label class="form-label">آدرس پستی جهت ارسال</label>
+            <textarea id="orderCustomerAddress" class="form-textarea" placeholder="استان، شهر، آدرس پستی دقیق و کد پستی..."></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">یادداشت سفارش</label>
+            <input type="text" id="orderCustomerNote" class="form-input" placeholder="توضیحات اختیاری">
+          </div>
+          <div style="display: flex; gap: 12px; margin-top: 25px;">
+            <button type="submit" class="btn-checkout-telegram" style="flex: 1;">ارسال سفارش به تلگرام</button>
+            <button type="button" class="btn-glass" onclick="closeTelegramCheckoutModal()">انصراف</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- اسکریپت‌ها -->
+    <script src="assets/js/products.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+      function toggleFaq(item) {
+        item.classList.toggle('active');
+      }
+
+      function handleContactSubmit(event) {
+        event.preventDefault();
+        const subject = document.getElementById('contactSubject').value;
+        const name = document.getElementById('contactName').value.trim();
+        const contact = document.getElementById('contactContact').value.trim();
+        const message = document.getElementById('contactMessage').value.trim();
+
+        const text = `سلام و احترام! 👋
+پیام جدید از بخش «تماس با ما» وبسایت استیچ:
+
+📌 *موضوع:* ${subject}
+👤 *فرستنده:* ${name}
+📞 *اطلاعات تماس:* ${contact}
+📝 *متن پیام:*
+${message}
+`;
+
+        const url = `https://t.me/${TELEGRAM_CONFIG.orderUsername}?text=${encodeURIComponent(text)}`;
+        window.open(url, '_blank');
+        showToast('پیام شما آماده و به تلگرام منتقل شد', 'telegram');
+      }
+
+      function copyContactMessage() {
+        const subject = document.getElementById('contactSubject').value;
+        const name = document.getElementById('contactName').value.trim();
+        const contact = document.getElementById('contactContact').value.trim();
+        const message = document.getElementById('contactMessage').value.trim();
+
+        if (!message) {
+          showToast('لطفاً متن پیام را وارد کنید', 'success');
+          return;
+        }
+
+        const text = `موضوع: ${subject}\nنام: ${name}\nتماس: ${contact}\nپیام:\n${message}`;
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(text).then(() => {
+            showToast('متن پیام در کلیپ‌بورد کپی شد!', 'success');
+          });
+        }
+      }
+    </script>
+  </body>
+</html>
